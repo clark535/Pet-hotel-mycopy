@@ -1,10 +1,13 @@
 # CRUD Up Pet Hotel
 Your team has started a new business in Uptown for dog-enthusiasts that also need to vacation without their beloved pets.
 
-You will be using Trello to track your progress on this application. Copy [this Trello Board](https://trello.com/b/aHoUGrQA/pet-hotel) to get started. You can copy this board by creating a Trello account, clicking `show menu`, selecting `more`, and selecting `Copy Board`. These tasks are recommendations, if your team would like to divide things up differently, please do!
+You will be using Trello to track your progress on this application. Copy [this Trello Board](https://trello.com/b/aHoUGrQA/pet-hotel) to get started. You can copy this board by creating a Trello account, clicking `show menu`, selecting `more`, and selecting `Copy Board`. These tasks are recommendations for how to divide the work, if your team would like to divide things up differently, please do!
 
-As an MVP, you will create an application that allows owners to 
+Your business needs to track their customers (dog owners) and will need to be able to create a new owner.
 
+As an MVP, you will create an application that allows owners to keep track of their pets by allowing them to:
+
+* create a new pet (associating them to an owner)
 * check in their pet
 * check out their pet
 * update their pet's info
@@ -28,8 +31,8 @@ Create a new database called `pet_hotel` and add the following tables. Don't for
 
 _Columns_
 
-* first name
-* last name
+* `first_name`
+* `last_name`
 
 **Table 2: Pets**
 
@@ -37,24 +40,16 @@ _Columns_
 
 _Columns_
 
-* name
-* breed
-* color
-
-**Table 3: Visits**
-
-*We'll keep a log of each visit. Remember that visits must be linked to a pet.*
-
-_Columns_
-
-* check-in date
-* check-out date
+* `name`
+* `breed`
+* `color`
+* `is_checked_in`
 
 **Entity Relationship Diagram**
 
 This is a visual representation of how these tables might be linked together.
 
-![Entity Relationship Diagram](images/entity-relationship-diagram.png)
+![Entity Relationship Diagram](images/owners-pets-entity-ralationship-diagram.png)
 
 ### Views
 
@@ -73,18 +68,36 @@ NOTE: Ignore the "Visits" link you see on the image . This is reserved for Hard 
 * All of the pet data displayed should be editable.
 * Clicking the `Go` button under the `Update` column should update the `pets` table.
 * Clicking the `Go` button under the `Delete` column should delete the pet from the `pets` table. HINT: Delete any visits for this pet before deleting it from the `pets` table.
-* The Check-In/Check-out button will default to displaying `IN` when a pet is first created. 
-* Checking in a pet is done by inserting the current date into the check-in date column of the `visits` table. A checked-in pet will have a button that displays `OUT`. 
- * Checking out a pet is done by updating the check-out date column record in the `visits` table.
+* The Check-In/Check-out button will default to displaying `IN` when a pet is first created.
 
 ## Hard Mode
 
-Create a second page for the application: Visits.
+### Create a third table:
+
+*We'll keep a log of each visit. Remember that visits must be linked to a pet.*
+
+_Columns_
+
+* `check_in_time`
+* `check_out_time`
+
+This is a visual representation of how these tables might be linked together.
+
+![Entity Relationship Diagram](images/visits-entity-relationship-diagram.png)
+
+### Create a second page for the application: Visits.
 
 The Visits page will display the check-in data for each pet. Pets that are checked in, but not checked out should appear first in the list. We should see the following data:
 
 * Pet name
 * Check-in time
-* Checkout time
+* Check-out time
 
 There is no mockup for this page, so be creative and do your best!
+
+### Use the times to calculate if the pet is in or out
+
+Instead of relying on the boolean `is_checked_in`, we should be able to tell if a pet is in or out based on it's latest visit.
+
+* Checking in a pet is done by inserting the current date into the check-in date column of the `visits` table. A checked-in pet will have a button that displays `OUT`. 
+ * Checking out a pet is done by updating the check-out date column record in the `visits` table.
