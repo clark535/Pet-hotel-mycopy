@@ -2,7 +2,7 @@ console.log('client.js is sources');
 
 $(document).ready(function () {
     console.log('jQuery .ready has been loaded');
-
+    getAllInfo();
 
 
     $('#register').on('click', addNewOwner);
@@ -101,8 +101,8 @@ function getAllInfo(){
             for (let i = 0; i < response.length; i++) {
                 var customer = response[i]
             }//end for loop
-            $('#pet-table').empty();
-            $('#pet-table').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
+            $('#table-body').empty();
+            $('#table-body').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
             <td>` + customer.name + '</td><td>' + customer.breed + '</td><td>' + customer.color + '</td></tr>');
         });//end then
       } // end getAllInfo
