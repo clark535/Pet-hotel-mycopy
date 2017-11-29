@@ -29,3 +29,8 @@ INSERT INTO pets ("name", breed, color, is_checked_in)
 VALUES ('Mongo', 'Bull Dog', 'Grey', true),
 ('Chappy', 'Shitzu', 'purple', true),
 ('Huckelberry', 'Labrador', 'chocolate', true);
+
+--for the GET route to display the table at the bottom of the home page
+SELECT * FROM owners
+LEFT OUTER JOIN pets
+ON owners.id = pets.id;
