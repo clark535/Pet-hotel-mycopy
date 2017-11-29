@@ -63,3 +63,21 @@ $(document).ready(function () {
           });
       }
 
+
+
+function getAllInfo(){
+        console.log( 'in getAllInfo' );
+        // ajax call to server to get List
+        $.ajax({
+          method: 'GET',
+          url: '/pet',
+        }).then(function(response){ //this .then is a promise which is used in a syncronise code
+            console.log('response', response)
+            for (let i = 0; i < response.length; i++) {
+                var customer = response[i]
+            }//end for loop
+            $('#pet-table').empty();
+            $('#pet-table').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
+            <td>` + customer.name + '</td><td>' + customer.breed + '</td><td>' + customer.color + '</td></tr>');
+        });//end then
+      } // end getAllInfo
