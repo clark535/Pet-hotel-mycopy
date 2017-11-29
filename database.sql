@@ -19,3 +19,13 @@ id SERIAL PRIMARY KEY,
 check_in_date INT,
 check_out_date INT
 );
+
+INSERT INTO owners (first_name, last_name)
+VALUES ('Johnny', 'Ringo'),
+('Elanor', 'Roosevelt'),
+('Doc', 'Holiday');
+
+INSERT INTO pets ("name", breed, color, is_checked_in)
+VALUES ('Mongo', 'Bull Dog', 'Grey', true),
+('Chappy', 'Shitzu', 'purple', true),
+('Huckelberry', 'Labrador', 'chocolate', true);
