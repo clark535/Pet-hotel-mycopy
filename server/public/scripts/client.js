@@ -38,8 +38,8 @@ $(document).ready(function () {
           method: 'POST',
           url: '/registration',
           data: {
-            first_name: first_name,
-            last_name: last_name
+            first_name: newFirstName,
+            last_name: newLastName
           }
       }).then(function(response){
           console.log('response', response);

@@ -4,6 +4,7 @@ var router = express.Router();
 var pool = require('../modules/pool');
 
 router.get('/', function (req, res) {
+    console.log('in registration get');
     // Attempt to connect to database
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
@@ -29,6 +30,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
+    console.log('in registration post');
     // Attempt to connect to database
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
