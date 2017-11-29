@@ -6,6 +6,7 @@ $(document).ready(function () {
 
 
     $('#register').on('click', addNewOwner);
+    $('#add-pet').on('click', addNewPet )
 
     });
     
@@ -34,7 +35,7 @@ $(document).ready(function () {
         var newFirstName=$('#first_name').val();
         var newLastName=$('#last_name').val();
         //var ownerName=newFirstName + newLastName;
-      $.ajax({
+        $.ajax({
           method: 'POST',
           url: '/registration',
           data: {
@@ -63,3 +64,21 @@ $(document).ready(function () {
           });
       }
 
+function addNewPet(){
+console.log('add pets button was clicked');
+var newPetName = $('#pet_name').val();
+var newBreedName = $('#breed').val();
+var newColor = $('#color').val();
+var newOwnerId = $('#owner-options option:selected').attr('data-id')
+$.ajax({
+    method: 'POST',
+    url: '/pet',
+    data: { pet_name: newPetName,
+        breed: newBreedName,
+        color: newColor,
+        owner_id: newOwnerId
+        }
+    
+    })
+    success: getAllInfo 
+}
