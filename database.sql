@@ -11,8 +11,10 @@ id SERIAL PRIMARY KEY,
 name VARCHAR(80),
 breed VARCHAR(80),
 color VARCHAR(80),
-is_checked_in BOOLEAN
+is_checked_in BOOLEAN,
+owner_id INT
 );
+
 
 CREATE TABLE visits (
 id SERIAL PRIMARY KEY,
@@ -25,12 +27,13 @@ VALUES ('Johnny', 'Ringo'),
 ('Elanor', 'Roosevelt'),
 ('Doc', 'Holiday');
 
-INSERT INTO pets ("name", breed, color, is_checked_in)
-VALUES ('Mongo', 'Bull Dog', 'Grey', true),
-('Chappy', 'Shitzu', 'purple', true),
-('Huckelberry', 'Labrador', 'chocolate', true);
+INSERT INTO pets ("name", breed, color, owner_id)
+VALUES ('Mongo', 'Bull Dog', 'Grey', 2),
+('Chappy', 'Shitzu', 'purple', 1),
+('Huckelberry', 'Labrador', 'chocolate', 3);
+
 
 --for the GET route to display the table at the bottom of the home page
-SELECT * FROM owners
-LEFT OUTER JOIN pets
-ON owners.id = pets.id;
+SELECT * FROM pets
+LEFT OUTER JOIN owners
+ON owners.id = pets.owner_id;
