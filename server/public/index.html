@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PET HOTEL</title>
+</head>
+
+<body>
+    <header>
+        <h1>Coolest Pet Hotel</h1>
+    </header>
+        <div>
+    <h2>Owner Registration</h2>
+    <form id="owner-form">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" />
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" />
+        <button id="register" class="btn btn-outline-primary">Register</button>
+    </form>
+    </div>
+
+    <h2>Pets</h2>
+    <form id="pet-form">
+        <label for="owner_name">Owner Name:</label>
+        <select id="owner-options" name="id"></select>
+
+
+        <label for="pet_name">Pet Name:</label>
+        <input type="text" id="pet_name" name="name" />
+
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" />
+
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" />
+
+        <button id="add-pet">Add Pet</button>
+
+
+
+        </div>
+
+        <table id="pet-table">
+            <thead>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Breed</th>
+                <th>Color</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Check in/out</th>
+            </thead>
+            <tbody id='table-body'>
+            </tbody>
+        </table>
+
+
+        </div>
+
+
+
+
+</body>
+
+
+
+
+</html>
