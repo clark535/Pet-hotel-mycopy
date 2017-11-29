@@ -74,14 +74,15 @@ var newOwnerId = $('#owner-options option:selected').attr('data-id')
 $.ajax({
     method: 'POST',
     url: '/pet',
-    data: { pet_name: newPetName,
+    data: { 
+        pet_name: newPetName,
         breed: newBreedName,
         color: newColor,
         owner_id: newOwnerId
         }
     
     })
-    success: getAllInfo 
+    success: getAllInfo() 
 }
 
 
@@ -94,12 +95,12 @@ function getAllInfo(){
           url: '/pet',
         }).then(function(response){ //this .then is a promise which is used in a syncronise code
             console.log('response', response)
+            $('#table-body').empty()
             for (let i = 0; i < response.length; i++) {
                 var customer = response[i]
-            }//end for loop
-            $('#table-body').empty();
             $('#table-body').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
             <td>` + customer.name + '</td><td>' + customer.breed + '</td><td>' + customer.color + '</td></tr>');
+            }//end for loop
         });//end then
       } // end getAllInfo
 
