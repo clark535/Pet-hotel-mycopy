@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="vendors/jquery-3.2.1.min.js"></script>
+    <script src="vendors/angular.js"></script>
     <script src="scripts/client.js"></script>
     <link rel="stylesheet" hrel="styles/styles.css">
     <title>PET HOTEL</title>
@@ -18,10 +18,10 @@
         <div>
     <h2>Owner Registration</h2>
         <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" />
+        <input type="text" ng-model="vm.newName.first_name">
         <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" />
-        <button id="register">Register</button>
+        <input type="text" ng-model="vm.newName.last_name">
+        <button ng-click="addNewOwner(newName.first_name, newName.last_name)">Register</button>
     </div>
 
     <h2>Pets</h2>
