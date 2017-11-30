@@ -54,9 +54,31 @@ app.controller('PetController', ['$http', function ($http) {
                 owner_id: newOwnerId
             }
 
+<<<<<<< HEAD
         })
         success: getAllInfo
     }
+=======
+function addNewPet(){
+console.log('add pets button was clicked');
+var newPetName = $('#pet_name').val();
+var newBreedName = $('#breed').val();
+var newColor = $('#color').val();
+var newOwnerId = $('#owner-options option:selected').attr('data-id')
+$.ajax({
+    method: 'POST',
+    url: '/pet',
+    data: { 
+        pet_name: newPetName,
+        breed: newBreedName,
+        color: newColor,
+        owner_id: newOwnerId
+        }
+    
+    })
+    success: getAllInfo() 
+}
+>>>>>>> 815441164e190d72f2de4041a9d23ff6b3d0e1ca
 
 
 
@@ -68,6 +90,7 @@ app.controller('PetController', ['$http', function ($http) {
             url: '/pet'
         }).then(function (response) { //this .then is a promise which is used in a syncronise code
             console.log('response', response)
+<<<<<<< HEAD
             //     for (let i = 0; i < response.length; i++) {
             //         var customer = response[i]
             //     }//end for loop
@@ -75,6 +98,16 @@ app.controller('PetController', ['$http', function ($http) {
             //     $('#table-body').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
             //     <td>` + customer.name + '</td><td>' + customer.breed + '</td><td>' + customer.color + '</td></tr>');
             // });//end then
+=======
+            $('#table-body').empty()
+            for (let i = 0; i < response.length; i++) {
+                var customer = response[i]
+            $('#table-body').append('<tr><td>' + customer.first_name + '</td><td>' + customer.last_name + `</td>
+            <td>` + customer.name + '</td><td>' + customer.breed + '</td><td>' + customer.color + '</td></tr>');
+            }//end for loop
+        });//end then
+      } // end getAllInfo
+>>>>>>> 815441164e190d72f2de4041a9d23ff6b3d0e1ca
 
             // end getAllInfo
         });
